@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
+import { gsap } from 'gsap/dist/gsap.js';
 import styles from './rolling-logo.module.css';
 
 export function RollingLogo() {
