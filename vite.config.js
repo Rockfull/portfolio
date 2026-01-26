@@ -15,11 +15,6 @@ export default defineConfig({
   build: {
     assetsInlineLimit: 1024,
   },
-  resolve: {
-    alias: {
-      gsap: 'gsap/dist/gsap.js',
-    },
-  },
   server: {
     port: 7777,
   },
