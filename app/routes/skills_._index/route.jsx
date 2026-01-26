@@ -1,5 +1,5 @@
 import { baseMeta } from '~/utils/meta';
-import { json } from '@remix-run/cloudflare';
+import { json } from '@remix-run/node';
 
 export function meta() {
   return baseMeta({
