@@ -18,15 +18,13 @@ export default defineConfig({
   server: {
     port: 7777,
   },
-  ssr: {
-    noExternal: ['gsap', 'three', 'three-stdlib', 'framer-motion'],
-  },
   plugins: [
     mdx({
       rehypePlugins: [[rehypeImgSize, { dir: 'public' }], rehypeSlug, rehypePrism],
       remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
       providerImportSource: '@mdx-js/react',
     }),
+
     remix({
       routes(defineRoutes) {
         return defineRoutes(route => {

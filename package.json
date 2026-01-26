@@ -10,8 +10,8 @@
     "build": "remix vite:build",
     "dev": "remix vite:dev",
     "start": "remix-serve ./build/server/index.js",
-    "deploy": "vercel deploy --prod",
-    "postinstall": "node scripts/patch-gsap.js",
+    "postinstall": "node ./scripts/draco.cjs",
+    "deploy": "vercel",
     "dev:storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build",
     "deploy:storybook": "wrangler pages deploy ./storybook-static --project-name portfolio-storybook --branch main"

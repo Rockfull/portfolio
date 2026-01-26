@@ -1,6 +1,6 @@
 import { json, createCookieSessionStorage } from '@remix-run/node';
 
-export async function action({ request, context }) {
+export async function action({ request }) {
   const formData = await request.formData();
   const theme = formData.get('theme');
 
