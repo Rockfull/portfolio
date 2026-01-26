@@ -1,0 +1,14 @@
+.home {
+  overflow-x: hidden;
+}
+
+.iconContainer {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.icon {
+  max-width: 100px;
+  height: auto;
+}

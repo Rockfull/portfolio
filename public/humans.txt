@@ -1,0 +1,36 @@
+
+  ____    ____
+ / __ \  |  _ \
+| |  | | | |_) |
+| |__| | |  _ <
+ \____/  |_| \_\
+_______________________________________________________________________________
+
+DEVELOPMENT | ウェブ開発
+
+Oriana Rocafull Ruggieri
+Web development
+
+Design tools:
+Photoshop
+
+
+https://x.com/oriana_rock
+https://github.com/Rockfull
+
+_______________________________________________________________________________
+
+TECHNOLOGY | テクノロジー
+
+React
+Remix
+Three.js
+Framer Motion
+
+_______________________________________________________________________________
+
+FONTS | フォント
+
+Gotham
+IPA Gothic Regular
+Hiragino Kaku Gothic W8

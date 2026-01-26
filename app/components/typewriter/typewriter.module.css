@@ -1,0 +1,32 @@
+.text {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+}
+
+.content {
+    white-space: pre;
+}
+
+.cursor {
+    display: inline-block;
+    width: 3px;
+    height: 0.8em;
+    vertical-align: middle;
+    border-radius: 4px;
+    background-color: var(--accent);
+    margin-left: 4px;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
