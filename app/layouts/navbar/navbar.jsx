@@ -115,13 +115,27 @@ export const Navbar = () => {
 
   // Check if a nav item should be active
   const getCurrent = (url = '') => {
-    const nonTrailing = current?.endsWith('/') ? current?.slice(0, -1) : current;
+    const isHash = url.startsWith('/#') || url.startsWith('#');
 
-    if (url === nonTrailing) {
+    // For hash links (anchors on the home page)
+    if (isHash) {
+      const nonTrailing = current?.endsWith('/') ? current?.slice(0, -1) : current;
+      if (url === nonTrailing) return 'page';
+      // Handle case where url might be just '#intro' but current is '/#intro'
+      if (current === `/${url}`) return 'page';
+      return undefined;
+    }
+
+    // For standard routes (Skills, Contact)
+    // Normalize both by removing trailing slashes
+    const normalizedPath = location.pathname.endsWith('/') ? location.pathname.slice(0, -1) : location.pathname;
+    const normalizedUrl = url.endsWith('/') ? url.slice(0, -1) : url;
+
+    if (normalizedPath === normalizedUrl) {
       return 'page';
     }
 
-    return '';
+    return undefined;
   };
 
   // Store the current hash to scroll to
@@ -136,15 +150,15 @@ export const Navbar = () => {
   };
 
   const handleMobileNavClick = event => {
-    handleNavItemClick(event);
+    if (event.currentTarget.href.split('#')[1]) {
+      handleNavItemClick(event);
+    }
     if (menuOpen) setMenuOpen(false);
   };
 
   return (
     <header className={styles.navbar} ref={headerRef}>
       <RouterLink
-        viewTransition
-        prefetch="intent"
         to={location.pathname === '/' ? '/#intro' : '/'}
         data-navbar-item
         className={styles.logo}
@@ -159,14 +173,13 @@ export const Navbar = () => {
         <div className={styles.navList}>
           {navLinks.map(({ label, pathname }) => (
             <RouterLink
-              viewTransition
-              prefetch="intent"
               to={pathname}
               key={label}
               data-navbar-item
               className={styles.navLink}
               aria-current={getCurrent(pathname)}
-              onClick={handleNavItemClick}
+              reloadDocument
+              onClick={pathname.includes('#') ? handleNavItemClick : undefined}
             >
               {label}
             </RouterLink>
@@ -179,13 +192,12 @@ export const Navbar = () => {
           <nav className={styles.mobileNav} data-visible={visible} ref={nodeRef}>
             {navLinks.map(({ label, pathname }, index) => (
               <RouterLink
-                viewTransition
-                prefetch="intent"
                 to={pathname}
                 key={label}
                 className={styles.mobileNavLink}
                 data-visible={visible}
                 aria-current={getCurrent(pathname)}
+                reloadDocument
                 onClick={handleMobileNavClick}
                 style={cssProps({
                   transitionDelay: numToMs(

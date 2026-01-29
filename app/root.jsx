@@ -127,7 +127,6 @@ export default function App() {
             id="main-content"
             className={styles.container}
             tabIndex={-1}
-            data-loading={state === 'loading'}
           >
             <Outlet />
           </main>
