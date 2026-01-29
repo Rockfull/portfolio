@@ -1,19 +1,27 @@
 import { Cache, TextureLoader } from 'three';
 import { DRACOLoader, GLTFLoader } from 'three-stdlib';
 
-// Enable caching for all loaders
-Cache.enabled = true;
+let dracoLoader;
+let gltfLoader;
+let modelLoader;
+let textureLoader;
 
-const dracoLoader = new DRACOLoader();
-const gltfLoader = new GLTFLoader();
-dracoLoader.setDecoderPath('/draco/');
-gltfLoader.setDRACOLoader(dracoLoader);
+if (typeof window !== 'undefined') {
+  Cache.enabled = true;
+
+  dracoLoader = new DRACOLoader();
+  gltfLoader = new GLTFLoader();
+  dracoLoader.setDecoderPath('/draco/');
+  gltfLoader.setDRACOLoader(dracoLoader);
+
+  modelLoader = gltfLoader;
+  textureLoader = new TextureLoader();
+}
 
 /**
  * GLTF model loader configured with draco decoder
  */
-export const modelLoader = gltfLoader;
-export const textureLoader = new TextureLoader();
+export { modelLoader, textureLoader };
 
 /**
  * Clean up a scene's materials and geometry
