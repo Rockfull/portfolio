@@ -33,9 +33,9 @@ import { classes, cssProps, numToMs } from '~/utils/style';
 import {
   cleanRenderer,
   cleanScene,
-  modelLoader,
+  loadModel,
+  loadTexture,
   removeLights,
-  textureLoader,
 } from '~/utils/three';
 import { ModelAnimationType } from './device-models';
 import { throttle } from '~/utils/throttle';
@@ -193,9 +193,9 @@ export const Model = ({
       shader.fragmentShader = `
         uniform float darkness;
         ${shader.fragmentShader.replace(
-          'gl_FragColor = vec4( vec3( 1.0 - fragCoordZ ), opacity );',
-          'gl_FragColor = vec4( vec3( 0.0 ), ( 1.0 - fragCoordZ ) * darkness );'
-        )}
+        'gl_FragColor = vec4( vec3( 1.0 - fragCoordZ ), opacity );',
+        'gl_FragColor = vec4( vec3( 0.0 ), ( 1.0 - fragCoordZ ) * darkness );'
+      )}
       `;
     };
     depthMaterial.current.depthTest = false;
@@ -390,8 +390,8 @@ const Device = ({
       let playAnimation;
 
       const [placeholder, gltf] = await Promise.all([
-        await textureLoader.loadAsync(texture.placeholder),
-        await modelLoader.loadAsync(url),
+        await loadTexture(texture.placeholder),
+        await loadModel(url),
       ]);
 
       modelGroup.current.add(gltf.scene);
@@ -414,7 +414,7 @@ const Device = ({
 
           loadFullResTexture = async () => {
             const image = await resolveSrcFromSrcSet(texture);
-            const fullSize = await textureLoader.loadAsync(image);
+            const fullSize = await loadTexture(image);
             await applyScreenTexture(fullSize, node);
 
             animate(1, 0, {

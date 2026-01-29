@@ -1,27 +1,41 @@
 import { Cache, TextureLoader } from 'three';
-import { DRACOLoader, GLTFLoader } from 'three-stdlib';
+
+// Enable caching for all loaders
+Cache.enabled = true;
 
 let dracoLoader;
 let gltfLoader;
-let modelLoader;
 let textureLoader;
 
-if (typeof window !== 'undefined') {
-  Cache.enabled = true;
+/**
+ * Load a GLTF model with Draco decoding (client-side only)
+ */
+export const loadModel = async url => {
+  if (typeof window === 'undefined') return;
 
-  dracoLoader = new DRACOLoader();
-  gltfLoader = new GLTFLoader();
-  dracoLoader.setDecoderPath('/draco/');
-  gltfLoader.setDRACOLoader(dracoLoader);
+  if (!gltfLoader) {
+    const { DRACOLoader, GLTFLoader } = await import('three-stdlib');
+    dracoLoader = new DRACOLoader();
+    dracoLoader.setDecoderPath('/draco/');
+    gltfLoader = new GLTFLoader();
+    gltfLoader.setDRACOLoader(dracoLoader);
+  }
 
-  modelLoader = gltfLoader;
-  textureLoader = new TextureLoader();
-}
+  return gltfLoader.loadAsync(url);
+};
 
 /**
- * GLTF model loader configured with draco decoder
+ * Load a texture (client-side only)
  */
-export { modelLoader, textureLoader };
+export const loadTexture = async url => {
+  if (typeof window === 'undefined') return;
+
+  if (!textureLoader) {
+    textureLoader = new TextureLoader();
+  }
+
+  return textureLoader.loadAsync(url);
+};
 
 /**
  * Clean up a scene's materials and geometry

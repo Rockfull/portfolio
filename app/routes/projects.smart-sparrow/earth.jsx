@@ -22,7 +22,7 @@ import {
   useRef,
   useState,
 } from 'react';
-import { HDRCubeTextureLoader, OrbitControls } from 'three-stdlib';
+
 import {
   ACESFilmicToneMapping,
   AmbientLight,
@@ -48,9 +48,9 @@ import {
   cleanRenderer,
   cleanScene,
   getChild,
-  modelLoader,
+  loadModel,
+  loadTexture,
   removeLights,
-  textureLoader,
 } from '~/utils/three';
 import { throttle } from '~/utils/throttle';
 import styles from './earth.module.css';
@@ -222,11 +222,16 @@ export const Earth = ({
     const lights = [ambientLight, dirLight];
     lights.forEach(light => scene.current.add(light));
 
-    controls.current = new OrbitControls(camera.current, canvas.current);
-    controls.current.enableZoom = false;
-    controls.current.enablePan = false;
-    controls.current.enableDamping = false;
-    controls.current.rotateSpeed = 0.5;
+    import('three-stdlib').then(({ OrbitControls }) => {
+      controls.current = new OrbitControls(camera.current, canvas.current);
+      controls.current.enableZoom = false;
+      controls.current.enablePan = false;
+      controls.current.enableDamping = false;
+      controls.current.rotateSpeed = 0.5;
+
+      controls.current.addEventListener('start', handleControlStart);
+      controls.current.addEventListener('end', handleControlEnd);
+    });
 
     return () => {
       mounted.current = false;
@@ -235,6 +240,12 @@ export const Earth = ({
       removeLights(lights);
       cleanScene(scene.current);
       cleanRenderer(renderer.current);
+
+      if (controls.current) {
+        controls.current.removeEventListener('start', handleControlStart);
+        controls.current.removeEventListener('end', handleControlEnd);
+        controls.current.dispose();
+      }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -254,13 +265,19 @@ export const Earth = ({
       setGrabbing(false);
     };
 
-    controls.current.addEventListener('start', handleControlStart);
-    controls.current.addEventListener('end', handleControlEnd);
+    // Event listeners are now handled inside the dynamic import callback
+    // or we can attach them if controls exists, but the cleanup above handles removal.
+    // To keep it simple, we can move the separate useEffect for events into the main one
+    // or just check for existence. Since we moved addEventListener up, we just need to ensure cleanup checks existence.
+    // The previous useEffect (lines 242-264) handled event listeners based on spring updates? 
+    // No, it just attached start/end listeners. 
+    // I will remove this block since I merged it into the creation block.
+    // Wait, the previous block (242-264) updated state on start/end. 
+    // I should keep the logic but move the attachment.
+    // Actually, simply removing this effect and putting logic in the main one is cleaner.
 
-    return () => {
-      controls.current.removeEventListener('start', handleControlStart);
-      controls.current.removeEventListener('end', handleControlEnd);
-    };
+    // For now, I'll return an empty cleanup since I handled it in the main effect.
+    return () => { };
   }, [cameraXSpring, cameraYSpring, cameraZSpring]);
 
   useEffect(() => {
@@ -330,12 +347,11 @@ export const Earth = ({
   useEffect(() => {
     if (loaded) return;
 
-    const hdrLoader = new HDRCubeTextureLoader();
     const pmremGenerator = new PMREMGenerator(renderer.current);
     pmremGenerator.compileCubemapShader();
 
-    const loadModel = async () => {
-      const gltf = await modelLoader.loadAsync(earthModel);
+    const initModel = async () => {
+      const gltf = await loadModel(earthModel);
 
       sceneModel.current = gltf.scene;
       animations.current = gltf.animations;
@@ -364,6 +380,8 @@ export const Earth = ({
     };
 
     const loadEnv = async () => {
+      const { HDRCubeTextureLoader } = await import('three-stdlib');
+      const hdrLoader = new HDRCubeTextureLoader();
       const hdrTexture = await hdrLoader.loadAsync([mwnx, mwny, mwnz, mwpx, mwpy, mwpz]);
 
       hdrTexture.magFilter = LinearFilter;
@@ -373,7 +391,7 @@ export const Earth = ({
     };
 
     const loadBackground = async () => {
-      const backgroundTexture = await textureLoader.loadAsync(milkywayBg);
+      const backgroundTexture = await loadTexture(milkywayBg);
       backgroundTexture.mapping = EquirectangularReflectionMapping;
       backgroundTexture.colorSpace = SRGBColorSpace;
       scene.current.background = backgroundTexture;
@@ -381,7 +399,7 @@ export const Earth = ({
     };
 
     const handleLoad = async () => {
-      await Promise.all([loadBackground(), loadEnv(), loadModel()]);
+      await Promise.all([loadBackground(), loadEnv(), initModel()]);
 
       sceneModel.current.traverse(({ material }) => {
         if (material) {

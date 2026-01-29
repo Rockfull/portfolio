@@ -14,7 +14,7 @@ import {
 } from 'three';
 import { resolveSrcFromSrcSet } from '~/utils/image';
 import { cssProps } from '~/utils/style';
-import { cleanRenderer, cleanScene, textureLoader } from '~/utils/three';
+import { cleanRenderer, cleanScene, loadTexture } from '~/utils/three';
 import styles from './carousel.module.css';
 import fragment from './carousel-fragment.glsl?raw';
 import vertex from './carousel-vertex.glsl?raw';
@@ -51,9 +51,8 @@ export const Carousel = ({ width, height, images, placeholder, ...rest }) => {
   const placeholderRef = useRef();
   const initSwipeX = useRef();
 
-  const currentImageAlt = `Slide ${imageIndex + 1} of ${images.length}. ${
-    images[imageIndex].alt
-  }`;
+  const currentImageAlt = `Slide ${imageIndex + 1} of ${images.length}. ${images[imageIndex].alt
+    }`;
 
   useEffect(() => {
     if (dragging) {
@@ -99,7 +98,7 @@ export const Carousel = ({ width, height, images, placeholder, ...rest }) => {
 
       const texturePromises = images.map(async image => {
         const imageSrc = image.srcSet ? await resolveSrcFromSrcSet(image) : image.src;
-        const imageTexture = await textureLoader.loadAsync(imageSrc);
+        const imageTexture = await loadTexture(imageSrc);
         await renderer.current.initTexture(imageTexture);
         imageTexture.colorSpace = LinearSRGBColorSpace;
         imageTexture.minFilter = LinearFilter;
