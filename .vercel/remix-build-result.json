@@ -105,12 +105,12 @@
     "basename": "/",
     "buildDirectory": "C:\\Users\\orian\\Documents\\Portafolio\\portfolio\\build",
     "future": {
-      "v3_fetcherPersist": false,
-      "v3_relativeSplatPath": false,
-      "v3_throwAbortReason": false,
+      "v3_fetcherPersist": true,
+      "v3_relativeSplatPath": true,
+      "v3_throwAbortReason": true,
       "v3_routeConfig": false,
-      "v3_singleFetch": false,
-      "v3_lazyRouteDiscovery": false,
+      "v3_singleFetch": true,
+      "v3_lazyRouteDiscovery": true,
       "unstable_optimizeDeps": false
     },
     "manifest": false,
