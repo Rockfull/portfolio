@@ -64,6 +64,6 @@
     "vite-jsconfig-paths": "^2.0.1"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": "20.x"
   }
 }
