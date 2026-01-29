@@ -15,6 +15,7 @@ export default defineConfig({
   assetsInclude: ['**/*.glb', '**/*.hdr', '**/*.glsl'],
   build: {
     assetsInlineLimit: 1024,
+    chunkSizeWarningLimit: 1000,
   },
   server: {
     port: 7777,
