@@ -27,7 +27,7 @@ import {
   WebGLRenderTarget,
   WebGLRenderer,
 } from 'three';
-import { HorizontalBlurShader, VerticalBlurShader } from 'three-stdlib';
+
 import { resolveSrcFromSrcSet } from '~/utils/image';
 import { classes, cssProps, numToMs } from '~/utils/style';
 import {
@@ -201,11 +201,13 @@ export const Model = ({
     depthMaterial.current.depthTest = false;
     depthMaterial.current.depthWrite = false;
 
-    horizontalBlurMaterial.current = new ShaderMaterial(HorizontalBlurShader);
-    horizontalBlurMaterial.current.depthTest = false;
+    import('three-stdlib').then(({ HorizontalBlurShader, VerticalBlurShader }) => {
+      horizontalBlurMaterial.current = new ShaderMaterial(HorizontalBlurShader);
+      horizontalBlurMaterial.current.depthTest = false;
 
-    verticalBlurMaterial.current = new ShaderMaterial(VerticalBlurShader);
-    verticalBlurMaterial.current.depthTest = false;
+      verticalBlurMaterial.current = new ShaderMaterial(VerticalBlurShader);
+      verticalBlurMaterial.current.depthTest = false;
+    });
 
     const unsubscribeX = rotationX.on('change', renderFrame);
     const unsubscribeY = rotationY.on('change', renderFrame);

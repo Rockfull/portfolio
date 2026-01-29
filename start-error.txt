@@ -1,0 +1,9 @@
+
+> start
+> remix-serve ./build/server/index.js
+
+Error: ENOENT: no such file or directory, stat 'C:\Users\orian\Documents\Portafolio\portfolio\build\server\index.js'
+    at Object.statSync (node:fs:1725:25)
+    at reimportServer (C:\Users\orian\Documents\Portafolio\portfolio\node_modules\@remix-run\serve\dist\cli.js:82:39)
+    at run (C:\Users\orian\Documents\Portafolio\portfolio\node_modules\@remix-run\serve\dist\cli.js:111:21)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
