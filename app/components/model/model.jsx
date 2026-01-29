@@ -225,6 +225,8 @@ export const Model = ({
   }, []);
 
   const blurShadow = useCallback(amount => {
+    if (!horizontalBlurMaterial.current || !verticalBlurMaterial.current) return;
+
     blurPlane.current.visible = true;
 
     // Blur horizontally and draw in the renderTargetBlur
