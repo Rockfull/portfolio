@@ -46,9 +46,9 @@ export const cleanScene = scene => {
 
     object.geometry.dispose();
 
-    if (object.material.isMaterial) {
+    if (object.material?.isMaterial) {
       cleanMaterial(object.material);
-    } else {
+    } else if (object.material) {
       for (const material of object.material) {
         cleanMaterial(material);
       }
