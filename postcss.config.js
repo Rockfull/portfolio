@@ -1,7 +1,8 @@
 export default {
     plugins: {
         '@csstools/postcss-global-data': {
-            files: ['app/global.module.css'],
+            // CAMBIO: De global.module.css a global.css
+            files: ['app/global.css'],
         },
         'postcss-custom-media': {},
     },
