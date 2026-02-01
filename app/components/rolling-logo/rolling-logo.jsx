@@ -1,77 +1,61 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import gsap from 'gsap';
 import styles from './rolling-logo.module.css';
 
 export function RollingLogo() {
     const lettersRef = useRef([]);
 
-    useEffect(() => {
-        const config = {
-            proximity: 100, // Distance to trigger effect
-            maxRotation: 90 // Degrees to rotate (90 shows bottom face)
-        };
+    const handleHover = () => {
+        lettersRef.current.forEach((el, index) => {
+            if (!el) return;
 
-        const handleMouseMove = (e) => {
-            const mouseX = e.clientX;
-            const mouseY = e.clientY;
+            gsap.killTweensOf(el);
 
-            lettersRef.current.forEach((letterWrapper) => {
-                if (!letterWrapper) return;
+            const timeline = gsap.timeline();
 
-                // 1. Get center of the letter
-                const rect = letterWrapper.getBoundingClientRect();
-                const centerX = rect.left + rect.width / 2;
-                const centerY = rect.top + rect.height / 2;
-
-                // 2. Calculate distance
-                const dx = mouseX - centerX;
-                const dy = mouseY - centerY;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-
-                // 3. Interpolate rotation
-                let rotation = 0;
-
-                if (distance < config.proximity) {
-                    // Formula: (1 - percentage_distance) * maxRotation
-                    const progress = 1 - (distance / config.proximity);
-                    rotation = progress * config.maxRotation;
-                }
-
-                // 4. Apply GSAP
-                gsap.to(letterWrapper, {
-                    rotateX: rotation,
-                    duration: 0.5,
-                    ease: "power2.out",
-                    overwrite: "auto"
-                });
+            // Elastic Cyber Stretch
+            // 1. Rapid vertical expansion (Energy Beam)
+            timeline.to(el, {
+                scaleY: 2.5,          // Stretch tall
+                scaleX: 0.8,          // Narrow slightly
+                color: '#0ff0dc',     // Neon Cyan
+                textShadow: '0 0 20px #0ff0dc', // Glow
+                duration: 0.1,
+                ease: 'power2.out'
             });
-        };
 
-        window.addEventListener('mousemove', handleMouseMove);
-        return () => window.removeEventListener('mousemove', handleMouseMove);
-    }, []);
-
-    const word = "OR";
+            // 2. Snap back with elasticity
+            timeline.to(el, {
+                scaleY: 1,
+                scaleX: 1,
+                color: 'var(--text)',
+                textShadow: 'none',
+                duration: 0.8,
+                ease: 'elastic.out(1, 0.3)' // Bouncy return
+            });
+        });
+    };
 
     return (
-        <div className={styles.container} aria-label="ORR Logo">
-            {word.split('').map((char, i) => (
-                <div
-                    key={i}
-                    ref={el => lettersRef.current[i] = el}
-                    className={styles.letterWrapper}
-                >
-                    {/* Front Face: Original letter */}
-                    <span className={`${styles.face} ${styles.front}`}>
-                        {char}
-                    </span>
-
-                    {/* Bottom Face: The revealed letter */}
-                    <span className={`${styles.face} ${styles.bottom}`}>
-                        {char}
-                    </span>
-                </div>
-            ))}
+        <div
+            className={styles.container}
+            onMouseEnter={handleHover}
+            aria-label="ORR Logo"
+        >
+            <span
+                ref={el => lettersRef.current[0] = el}
+                className={styles.letter}
+                style={{ transformOrigin: 'center bottom' }} // Stretch from bottom
+            >
+                O
+            </span>
+            <span
+                ref={el => lettersRef.current[1] = el}
+                className={styles.letter}
+                style={{ transformOrigin: 'center bottom' }}
+            >
+                R
+            </span>
         </div>
     );
 }

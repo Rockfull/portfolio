@@ -83,4 +83,13 @@
       transform-origin: right;
     }
   }
+
+  /* Hide default scrollbar for custom GSAP implementation */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  html {
+    scrollbar-width: none;
+  }
 }

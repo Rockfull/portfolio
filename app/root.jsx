@@ -19,17 +19,15 @@ import { Error } from '~/layouts/error';
 import { VisuallyHidden } from '~/components/visually-hidden';
 import { Navbar } from '~/layouts/navbar';
 import { Progress } from '~/components/progress';
+import { Scrollbar } from '~/components/scrollbar/scrollbar'; // Correctly added
 import config from '~/config.json';
 import styles from './root.module.css';
-import resetStyles from './reset.css?url'; // <-- NUEVO (fíjate en ?url)
-import globalStyles from './global.css?url'; // <-- NUEVO (fíjate en ?url)
+import resetStyles from './reset.css?url';
+import globalStyles from './global.css?url';
 
 export const links = () => [
-  // 1. AÑADE ESTOS DOS PRIMERO
   { rel: 'stylesheet', href: resetStyles },
   { rel: 'stylesheet', href: globalStyles },
-
-  // 2. MANTÉN EL RESTO IGUAL (Tus fuentes, iconos, etc.)
   {
     rel: 'preload',
     href: GothamMedium,
@@ -57,8 +55,6 @@ export const loader = async ({ request, context }) => {
   const { pathname } = new URL(url);
   const pathnameSliced = pathname.endsWith('/') ? pathname.slice(0, -1) : url;
   const canonicalUrl = `${config.url}${pathnameSliced}`;
-
-
 
   const session = await getSession(request.headers.get('Cookie'));
   const theme = session.get('theme') || 'dark';
@@ -119,6 +115,7 @@ export default function App() {
             Skip to main content
           </VisuallyHidden>
           <Navbar />
+          <Scrollbar />
           <main
             id="main-content"
             className={styles.container}
@@ -135,7 +132,7 @@ export default function App() {
 }
 
 export function ErrorBoundary() {
-  const error = useRouteError();
+  const error = useRouteError(); // This should work now
 
   return (
     <html lang="en">

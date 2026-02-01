@@ -1,44 +1,24 @@
 .container {
     display: flex;
-    gap: 18px;
-    perspective: 1000px;
-    /* Vital for 3D effect */
+    gap: 0;
     cursor: pointer;
-}
-
-.letterWrapper {
-    position: relative;
-    width: 1.2ch;
-    /* Adjusted for font size */
-    height: 1.5em;
-    /* Adjusted for line-height */
-    transform-style: preserve-3d;
-    will-change: transform;
-}
-
-.face {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    /* font-family: monospace; removed to match original style */
+    font-weight: 900;
     font-size: 2.5rem;
-    font-weight: var(--fontWeightBold);
+    position: relative;
+    isolation: isolate;
+}
+
+.letter {
+    position: relative;
+    display: inline-block;
     color: var(--text);
-    background: transparent;
-    backface-visibility: hidden;
-    user-select: none;
-    line-height: 1;
+    margin-right: -4px;
+    will-change: text-shadow, opacity, transform;
 }
 
-.front {
-    transform: translateZ(0.75em);
-    /* Push forward half the height */
-}
-
-.bottom {
-    transform: rotateX(-90deg) translateZ(0.75em);
-    color: var(--accent);
-    /* Optional: Accent color for the revealed face */
+/* Remove pseudo-elements used for previous glitch effect */
+.letter::before,
+.letter::after {
+    display: none;
 }
