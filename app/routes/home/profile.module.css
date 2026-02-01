@@ -23,7 +23,8 @@
     overflow-x: hidden;
   }
 
-  @media (--mediaMobile), (--mediaMobileLS) {
+  @media (--mediaMobile),
+  (--mediaMobileLS) {
     padding-right: var(--spaceOuter);
     padding-left: var(--spaceOuter);
   }
@@ -114,6 +115,7 @@
 .image {
   position: relative;
   width: 100%;
+  max-width: 70%;
 }
 
 .svg {
