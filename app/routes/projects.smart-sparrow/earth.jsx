@@ -1,11 +1,11 @@
-import earthModel from '~/assets/earth.glb';
+// import earthModel from '~/assets/earth.glb';
 import mwnx from '~/assets/milkyway-nx.hdr';
 import mwny from '~/assets/milkyway-ny.hdr';
 import mwnz from '~/assets/milkyway-nz.hdr';
 import mwpx from '~/assets/milkyway-px.hdr';
 import mwpy from '~/assets/milkyway-py.hdr';
 import mwpz from '~/assets/milkyway-pz.hdr';
-import milkywayBg from '~/assets/milkyway.jpg';
+// import milkywayBg from '~/assets/milkyway.jpg';
 import { Loader } from '~/components/loader';
 import { Section } from '~/components/section';
 import { tokens } from '~/components/theme-provider/theme';
@@ -351,32 +351,32 @@ export const Earth = ({
     pmremGenerator.compileCubemapShader();
 
     const initModel = async () => {
-      const gltf = await loadModel(earthModel);
+      // const gltf = await loadModel(earthModel);
 
-      sceneModel.current = gltf.scene;
-      animations.current = gltf.animations;
-      mixer.current = new AnimationMixer(sceneModel.current);
-      mixer.current.timeScale = 0.1;
+      // sceneModel.current = gltf.scene;
+      // animations.current = gltf.animations;
+      // mixer.current = new AnimationMixer(sceneModel.current);
+      // mixer.current.timeScale = 0.1;
 
-      sceneModel.current.traverse(async child => {
-        const { material, name } = child;
+      // sceneModel.current.traverse(async child => {
+      //   const { material, name } = child;
 
-        if (name === 'Atmosphere') {
-          material.alphaMap = material.map;
-        }
+      //   if (name === 'Atmosphere') {
+      //     material.alphaMap = material.map;
+      //   }
 
-        if (material) {
-          await renderer.current.initTexture(material);
-        }
-      });
+      //   if (material) {
+      //     await renderer.current.initTexture(material);
+      //   }
+      // });
 
-      sceneModel.current.position.x = position[0];
-      sceneModel.current.position.y = position[1];
-      sceneModel.current.position.z = position[2];
+      // sceneModel.current.position.x = position[0];
+      // sceneModel.current.position.y = position[1];
+      // sceneModel.current.position.z = position[2];
 
-      sceneModel.current.scale.x = scale;
-      sceneModel.current.scale.y = scale;
-      sceneModel.current.scale.z = scale;
+      // sceneModel.current.scale.x = scale;
+      // sceneModel.current.scale.y = scale;
+      // sceneModel.current.scale.z = scale;
     };
 
     const loadEnv = async () => {
@@ -391,11 +391,11 @@ export const Earth = ({
     };
 
     const loadBackground = async () => {
-      const backgroundTexture = await loadTexture(milkywayBg);
-      backgroundTexture.mapping = EquirectangularReflectionMapping;
-      backgroundTexture.colorSpace = SRGBColorSpace;
-      scene.current.background = backgroundTexture;
-      await renderer.current.initTexture(backgroundTexture);
+      // const backgroundTexture = await loadTexture(milkywayBg);
+      // backgroundTexture.mapping = EquirectangularReflectionMapping;
+      // backgroundTexture.colorSpace = SRGBColorSpace;
+      // scene.current.background = backgroundTexture;
+      // await renderer.current.initTexture(backgroundTexture);
     };
 
     const handleLoad = async () => {

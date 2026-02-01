@@ -1,48 +1,48 @@
-import backgroundSprLarge from '~/assets/spr-background-large.jpg';
-import backgroundSprPlaceholder from '~/assets/spr-background-placeholder.jpg';
-import imageSprBackgroundVolcanismLarge from '~/assets/spr-background-volcanism-large.jpg';
-import imageSprBackgroundVolcanismPlaceholder from '~/assets/spr-background-volcanism-placeholder.jpg';
-import imageSprBackgroundVolcanism from '~/assets/spr-background-volcanism.jpg';
-import backgroundSpr from '~/assets/spr-background.jpg';
-import imageSprComponentsDarkLarge from '~/assets/spr-components-dark-large.png';
-import imageSprComponentsDarkPlaceholder from '~/assets/spr-components-dark-placeholder.png';
-import imageSprComponentsDark from '~/assets/spr-components-dark.png';
-import imageSprComponentsLightLarge from '~/assets/spr-components-light-large.png';
-import imageSprComponentsLightPlaceholder from '~/assets/spr-components-light-placeholder.png';
-import imageSprComponentsLight from '~/assets/spr-components-light.png';
-import imageSprDesignSystemDarkLarge from '~/assets/spr-design-system-dark-large.png';
-import imageSprDesignSystemDarkPlaceholder from '~/assets/spr-design-system-dark-placeholder.png';
-import imageSprDesignSystemDark from '~/assets/spr-design-system-dark.png';
-import imageSprDesignSystemLightLarge from '~/assets/spr-design-system-light-large.png';
-import imageSprDesignSystemLightPlaceholder from '~/assets/spr-design-system-light-placeholder.png';
-import imageSprDesignSystemLight from '~/assets/spr-design-system-light.png';
+// import backgroundSprLarge from '~/assets/spr-background-large.jpg';
+// import backgroundSprPlaceholder from '~/assets/spr-background-placeholder.jpg';
+// import imageSprBackgroundVolcanismLarge from '~/assets/spr-background-volcanism-large.jpg';
+// import imageSprBackgroundVolcanismPlaceholder from '~/assets/spr-background-volcanism-placeholder.jpg';
+// import imageSprBackgroundVolcanism from '~/assets/spr-background-volcanism.jpg';
+// import backgroundSpr from '~/assets/spr-background.jpg';
+// import imageSprComponentsDarkLarge from '~/assets/spr-components-dark-large.png';
+// import imageSprComponentsDarkPlaceholder from '~/assets/spr-components-dark-placeholder.png';
+// import imageSprComponentsDark from '~/assets/spr-components-dark.png';
+// import imageSprComponentsLightLarge from '~/assets/spr-components-light-large.png';
+// import imageSprComponentsLightPlaceholder from '~/assets/spr-components-light-placeholder.png';
+// import imageSprComponentsLight from '~/assets/spr-components-light.png';
+// import imageSprDesignSystemDarkLarge from '~/assets/spr-design-system-dark-large.png';
+// import imageSprDesignSystemDarkPlaceholder from '~/assets/spr-design-system-dark-placeholder.png';
+// import imageSprDesignSystemDark from '~/assets/spr-design-system-dark.png';
+// import imageSprDesignSystemLightLarge from '~/assets/spr-design-system-light-large.png';
+// import imageSprDesignSystemLightPlaceholder from '~/assets/spr-design-system-light-placeholder.png';
+// import imageSprDesignSystemLight from '~/assets/spr-design-system-light.png';
 import imageSprLessonBuilderDarkLarge from '~/assets/spr-lesson-builder-dark-large.jpg';
 import imageSprLessonBuilderDarkPlaceholder from '~/assets/spr-lesson-builder-dark-placeholder.jpg';
 import imageSprLessonBuilderDark from '~/assets/spr-lesson-builder-dark.jpg';
-import imageSprLessonBuilderLightLarge from '~/assets/spr-lesson-builder-light-large.jpg';
-import imageSprLessonBuilderLightPlaceholder from '~/assets/spr-lesson-builder-light-placeholder.jpg';
-import imageSprLessonBuilderLight from '~/assets/spr-lesson-builder-light.jpg';
-import videoSprMotionLarge from '~/assets/spr-motion-large.mp4';
-import videoSprMotionPlaceholder from '~/assets/spr-motion-placeholder.jpg';
-import videoSprMotion from '~/assets/spr-motion.mp4';
-import imageSprSchema1DarkLarge from '~/assets/spr-schema-1-dark-large.png';
-import imageSprSchema1DarkPlaceholder from '~/assets/spr-schema-1-dark-placeholder.png';
-import imageSprSchema1Dark from '~/assets/spr-schema-1-dark.png';
-import imageSprSchema1LightLarge from '~/assets/spr-schema-1-light-large.png';
-import imageSprSchema1LightPlaceholder from '~/assets/spr-schema-1-light-placeholder.png';
-import imageSprSchema1Light from '~/assets/spr-schema-1-light.png';
-import imageSprSchema2DarkLarge from '~/assets/spr-schema-2-dark-large.png';
-import imageSprSchema2DarkPlaceholder from '~/assets/spr-schema-2-dark-placeholder.png';
-import imageSprSchema2Dark from '~/assets/spr-schema-2-dark.png';
-import imageSprSchema2LightLarge from '~/assets/spr-schema-2-light-large.png';
-import imageSprSchema2LightPlaceholder from '~/assets/spr-schema-2-light-placeholder.png';
-import imageSprSchema2Light from '~/assets/spr-schema-2-light.png';
-import imageSprStoryboarderDarkLarge from '~/assets/spr-storyboarder-dark-large.png';
-import imageSprStoryboarderDarkPlaceholder from '~/assets/spr-storyboarder-dark-placeholder.png';
-import imageSprStoryboarderDark from '~/assets/spr-storyboarder-dark.png';
-import imageSprStoryboarderLightLarge from '~/assets/spr-storyboarder-light-large.png';
-import imageSprStoryboarderLightPlaceholder from '~/assets/spr-storyboarder-light-placeholder.png';
-import imageSprStoryboarderLight from '~/assets/spr-storyboarder-light.png';
+// import imageSprLessonBuilderLightLarge from '~/assets/spr-lesson-builder-light-large.jpg';
+// import imageSprLessonBuilderLightPlaceholder from '~/assets/spr-lesson-builder-light-placeholder.jpg';
+// import imageSprLessonBuilderLight from '~/assets/spr-lesson-builder-light.jpg';
+// import videoSprMotionLarge from '~/assets/spr-motion-large.mp4';
+// import videoSprMotionPlaceholder from '~/assets/spr-motion-placeholder.jpg';
+// import videoSprMotion from '~/assets/spr-motion.mp4';
+// import imageSprSchema1DarkLarge from '~/assets/spr-schema-1-dark-large.png';
+// import imageSprSchema1DarkPlaceholder from '~/assets/spr-schema-1-dark-placeholder.png';
+// import imageSprSchema1Dark from '~/assets/spr-schema-1-dark.png';
+// import imageSprSchema1LightLarge from '~/assets/spr-schema-1-light-large.png';
+// import imageSprSchema1LightPlaceholder from '~/assets/spr-schema-1-light-placeholder.png';
+// import imageSprSchema1Light from '~/assets/spr-schema-1-light.png';
+// import imageSprSchema2DarkLarge from '~/assets/spr-schema-2-dark-large.png';
+// import imageSprSchema2DarkPlaceholder from '~/assets/spr-schema-2-dark-placeholder.png';
+// import imageSprSchema2Dark from '~/assets/spr-schema-2-dark.png';
+// import imageSprSchema2LightLarge from '~/assets/spr-schema-2-light-large.png';
+// import imageSprSchema2LightPlaceholder from '~/assets/spr-schema-2-light-placeholder.png';
+// import imageSprSchema2Light from '~/assets/spr-schema-2-light.png';
+// import imageSprStoryboarderDarkLarge from '~/assets/spr-storyboarder-dark-large.png';
+// import imageSprStoryboarderDarkPlaceholder from '~/assets/spr-storyboarder-dark-placeholder.png';
+// import imageSprStoryboarderDark from '~/assets/spr-storyboarder-dark.png';
+// import imageSprStoryboarderLightLarge from '~/assets/spr-storyboarder-light-large.png';
+// import imageSprStoryboarderLightPlaceholder from '~/assets/spr-storyboarder-light-placeholder.png';
+// import imageSprStoryboarderLight from '~/assets/spr-storyboarder-light.png';
 import { Footer } from '~/components/footer';
 import { Image } from '~/components/image';
 import { Link } from '~/components/link';
@@ -96,12 +96,12 @@ export const SmartSparrow = () => {
   return (
     <>
       <ProjectContainer>
-        <ProjectBackground
+        {/* <ProjectBackground
           opacity={isDark ? 0.5 : 0.8}
           src={backgroundSpr}
           srcSet={`${backgroundSpr} 1080w, ${backgroundSprLarge} 2160w`}
           placeholder={backgroundSprPlaceholder}
-        />
+        /> */}
         <ProjectHeader
           title={title}
           description={description}
@@ -114,16 +114,18 @@ export const SmartSparrow = () => {
               raised
               key={theme}
               srcSet={
-                isDark
-                  ? `${imageSprLessonBuilderDark} 1280w, ${imageSprLessonBuilderDarkLarge} 2560w`
-                  : `${imageSprLessonBuilderLight} 1280w, ${imageSprLessonBuilderLightLarge} 2560w`
+                // isDark
+                //   ? `${imageSprLessonBuilderDark} 1280w, ${imageSprLessonBuilderDarkLarge} 2560w`
+                //   : `${imageSprLessonBuilderLight} 1280w, ${imageSprLessonBuilderLightLarge} 2560w`
+                `${imageSprLessonBuilderDark} 1280w, ${imageSprLessonBuilderDarkLarge} 2560w`
               }
               width={1280}
               height={800}
               placeholder={
-                isDark
-                  ? imageSprLessonBuilderDarkPlaceholder
-                  : imageSprLessonBuilderLightPlaceholder
+                // isDark
+                //   ? imageSprLessonBuilderDarkPlaceholder
+                //   : imageSprLessonBuilderLightPlaceholder
+                imageSprLessonBuilderDarkPlaceholder
               }
               sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 800px, 1000px`}
               alt="The aero lesson builder app dragging an audio component into a screen about plant cells."
@@ -146,7 +148,7 @@ export const SmartSparrow = () => {
         </ProjectSection>
         <ProjectSection light={isDark}>
           <ProjectSectionContent>
-            <Image
+            {/* <Image
               key={theme}
               srcSet={
                 isDark
@@ -162,7 +164,7 @@ export const SmartSparrow = () => {
               }
               alt={`A set of ${theme} themed components for the aero design system`}
               sizes="100vw"
-            />
+            /> */}
             <ProjectTextRow>
               <SegmentedControl
                 currentIndex={themes.indexOf(theme)}
@@ -186,7 +188,7 @@ export const SmartSparrow = () => {
         </ProjectSection>
         <ProjectSection>
           <ProjectSectionContent>
-            <Image
+            {/* <Image
               raised
               key={theme}
               srcSet={
@@ -203,7 +205,7 @@ export const SmartSparrow = () => {
               }
               alt="The homepage of the aero design system docs website linking to principles and components."
               sizes="100vw"
-            />
+            /> */}
             <ProjectTextRow>
               <ProjectSectionHeading>Design system docs</ProjectSectionHeading>
               <ProjectSectionText>
@@ -218,16 +220,16 @@ export const SmartSparrow = () => {
         <ThemeProvider theme="dark" data-invert>
           <ProjectSection
             backgroundOverlayOpacity={0.5}
-            backgroundElement={
-              <Image
-                srcSet={`${imageSprBackgroundVolcanism} 1280w, ${imageSprBackgroundVolcanismLarge} 2560w`}
-                width={1280}
-                height={900}
-                placeholder={imageSprBackgroundVolcanismPlaceholder}
-                alt="A dramatic ocean scene with lava forming a new land mass."
-                sizes="100vw"
-              />
-            }
+          // backgroundElement={
+          //   <Image
+          //     srcSet={`${imageSprBackgroundVolcanism} 1280w, ${imageSprBackgroundVolcanismLarge} 2560w`}
+          //     width={1280}
+          //     height={900}
+          //     placeholder={imageSprBackgroundVolcanismPlaceholder}
+          //     alt="A dramatic ocean scene with lava forming a new land mass."
+          //     sizes="100vw"
+          //   />
+          // }
           >
             <ProjectSectionColumns width="full">
               <ProjectSectionContent width="full">
@@ -241,7 +243,7 @@ export const SmartSparrow = () => {
                   </ProjectSectionText>
                 </ProjectTextRow>
               </ProjectSectionContent>
-              <Image
+              {/* <Image
                 raised
                 className={styles.video}
                 srcSet={`${videoSprMotion} 1280w, ${videoSprMotionLarge} 2560w`}
@@ -250,7 +252,7 @@ export const SmartSparrow = () => {
                 placeholder={videoSprMotionPlaceholder}
                 alt="A learning designer building and deploying an interactive lesson on volcanism using the app."
                 sizes={`(max-width: ${media.mobile}px) 100vw, 50vw`}
-              />
+              /> */}
             </ProjectSectionColumns>
           </ProjectSection>
         </ThemeProvider>
@@ -266,7 +268,7 @@ export const SmartSparrow = () => {
                 adaptivity scenarios screen by screen.
               </ProjectSectionText>
             </ProjectTextRow>
-            <Image
+            {/* <Image
               raised
               key={theme}
               srcSet={
@@ -283,7 +285,7 @@ export const SmartSparrow = () => {
               }
               alt="A drag and drop storyboard style editor for creating an adaptive lesson."
               sizes={`(max-width: ${media.mobile}px) 100vw, 80vw`}
-            />
+            /> */}
           </ProjectSectionContent>
         </ProjectSection>
         <ProjectSection>
@@ -302,7 +304,7 @@ export const SmartSparrow = () => {
                 </ProjectSectionText>
               </ProjectTextRow>
             </ProjectSectionContent>
-            <div className={styles.sidebarImages}>
+            {/* <div className={styles.sidebarImages}>
               <Image
                 className={styles.sidebarImage}
                 srcSet={
@@ -337,11 +339,11 @@ export const SmartSparrow = () => {
                 alt="Configuration options for text."
                 sizes={`(max-width: ${media.mobile}px) 50vw, 25vw`}
               />
-            </div>
+            </div> */}
           </ProjectSectionColumns>
         </ProjectSection>
         <ThemeProvider theme="dark" data-invert>
-          <Suspense>
+          {/* <Suspense>
             <Earth
               className={styles.earth}
               hideMeshes={useMemo(
@@ -519,7 +521,7 @@ export const SmartSparrow = () => {
                 meshes={['Atmosphere', 'EarthFull']}
               />
             </Earth>
-          </Suspense>
+          </Suspense> */}
         </ThemeProvider>
         <ProjectSection>
           <ProjectSectionContent>
