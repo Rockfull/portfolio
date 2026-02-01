@@ -118,7 +118,7 @@
 }
 
 .profileImage {
-  max-width: 70%;
+
   clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);
   filter: drop-shadow(0 0 10px var(--primary));
 
